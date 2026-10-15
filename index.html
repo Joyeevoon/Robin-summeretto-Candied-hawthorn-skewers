@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+  <title>晴天鸟鸟冰糖葫芦串串</title>
+  <link rel="icon" href="./assets/ui/ui-button-moe-sunflower-cat-head-transparent-480.webp" type="image/webp" />
+  <link rel="stylesheet" href="./style.css" />
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "./vendor/three.module.min.js",
+        "three/addons/": "./vendor/addons/"
+      }
+    }
+  </script>
+</head>
+<body>
+  <div class="loader" id="loader" role="status" aria-label="加载中">
+    <img class="loader-cat" src="./assets/ui/ui-button-moe-sunflower-cat-head-transparent-480.webp" alt="" draggable="false" />
+    <h1 class="loader-title">晴天鸟鸟冰糖葫芦串串</h1>
+    <div class="loader-bar"><i id="loaderFill"></i></div>
+    <p class="loader-text"><span id="loaderMsg">正在熬糖…</span><b id="loaderPct">0%</b></p>
+  </div>
+
+  <div class="app" id="app" aria-hidden="true">
+    <header class="top">
+      <h1 class="title">晴天鸟鸟冰糖葫芦串串</h1>
+      <p class="hint" id="hint">点「萌物」或「草莓」，一颗颗串上签子</p>
+      <div class="progress" id="progress" aria-label="已串的糖葫芦">
+        <i></i><i></i><i></i><i></i>
+      </div>
+      <button class="sound" id="soundBtn" type="button" aria-label="音乐开关" data-on="1">♪</button>
+      <div class="made" id="made"></div>
+    </header>
+
+    <main class="stage" id="stage">
+      <canvas id="scene" aria-label="可 360° 旋转的晴天鸟鸟冰糖葫芦"></canvas>
+      <button class="undo" id="undoBtn" type="button" aria-label="撤回上一颗">↶ 撤回</button>
+      <div class="toast" id="toast" role="status"></div>
+      <div class="rotate-tip" id="rotateTip">↔ 拖动 360° 旋转</div>
+    </main>
+
+    <footer class="tray" id="tray">
+      <button class="pick pick-moe" id="moeBtn" type="button">
+        <img src="./assets/ui/ui-button-moe-sunflower-cat-head-transparent-480.webp" alt="萌物糖片" draggable="false" />
+        <span class="pick-label">萌物</span>
+      </button>
+      <button class="pick pick-straw" id="strawBtn" type="button">
+        <img src="./assets/ui/ui-button-strawberry-candied-transparent-480.webp" alt="冰糖草莓" draggable="false" />
+        <span class="pick-label">草莓</span>
+      </button>
+      <button class="pick pick-milk is-locked" id="milkBtn" type="button">
+        <img src="./assets/ui/ui-button-milk-skin-film-user-transparent-480.webp" alt="奶皮" draggable="false" />
+        <span class="pick-label">奶皮</span>
+        <span class="pick-sub" id="milkSub">最后再加</span>
+      </button>
+    </footer>
+
+    <section class="done" id="done" aria-hidden="true">
+      <p class="done-kicker" id="doneKicker">完成一串！</p>
+      <p class="done-title" id="doneTitle">晴天鸟鸟冰糖葫芦</p>
+      <div class="done-actions">
+        <button type="button" class="btn btn-main" id="againBtn">再做一串</button>
+        <button type="button" class="btn" id="spinBtn">暂停旋转</button>
+      </div>
+    </section>
+  </div>
+
+  <audio id="bgm" src="./assets/audio/bgm-gentle-healing-loop.mp3" loop preload="auto"></audio>
+  <audio id="meow" src="./assets/audio/sfx-cat-meow-cheerful-finish.m4a" preload="auto"></audio>
+  <script type="module" src="./main.js"></script>
+</body>
+</html>
